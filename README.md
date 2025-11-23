@@ -1,0 +1,1 @@
+Question 1 implementation, featuring a C++ password strength evaluator along with documented git workflow steps such as branching, merging, an intentional conflict, and its resolution.
