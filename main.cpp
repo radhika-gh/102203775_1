@@ -4,7 +4,6 @@
 #include <cctype>
 #include <map>
 
-// Struct to store information about each evaluated password
 struct PasswordReport {
     std::string password;
     int score;
@@ -12,7 +11,6 @@ struct PasswordReport {
     std::vector<std::string> suggestions;
 };
 
-// Helper functions to check character patterns
 bool hasLower(const std::string& s) {
     for (char c : s) {
         if (std::islower(static_cast<unsigned char>(c))) return true;
@@ -49,12 +47,10 @@ bool hasSpace(const std::string& s) {
     return false;
 }
 
-// Compute a numeric score out of 10 based on length and character variety
 int computeScore(const std::string& pwd) {
     int score = 0;
     int length = static_cast<int>(pwd.size());
 
-    // Length scoring
     if (length >= 6 && length <= 7) {
         score += 1;
     } else if (length >= 8 && length <= 10) {
@@ -63,13 +59,11 @@ int computeScore(const std::string& pwd) {
         score += 3;
     }
 
-    // Character variety
     if (hasLower(pwd)) score += 2;
     if (hasUpper(pwd)) score += 2;
     if (hasDigit(pwd)) score += 2;
     if (hasSpecial(pwd)) score += 2;
 
-    // Penalty for spaces
     if (hasSpace(pwd)) score -= 1;
 
     if (score < 0) score = 0;
@@ -78,7 +72,6 @@ int computeScore(const std::string& pwd) {
     return score;
 }
 
-// Map score to strength label (this function is a good candidate for merge conflict later)
 std::string getStrengthLabel(int score) {
     if (score <= 2) {
         return "Very Weak";
@@ -93,7 +86,6 @@ std::string getStrengthLabel(int score) {
     }
 }
 
-// Generate simple suggestions based on missing patterns
 std::vector<std::string> getSuggestions(const std::string& pwd, int score) {
     std::vector<std::string> suggestions;
     int length = static_cast<int>(pwd.size());
