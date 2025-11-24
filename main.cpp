@@ -73,18 +73,19 @@ int computeScore(const std::string& pwd) {
 }
 
 std::string getStrengthLabel(int score) {
-    if (score <= 2) {
+    if (score <= 3) {
         return "Very Weak";
-    } else if (score <= 4) {
+    } else if (score <= 5) {
         return "Weak";
-    } else if (score <= 6) {
+    } else if (score <= 7) {
         return "Moderate";
-    } else if (score <= 8) {
+    } else if (score <= 9) {
         return "Strong";
     } else {
         return "Very Strong";
     }
 }
+
 
 std::vector<std::string> getSuggestions(const std::string& pwd, int score) {
     std::vector<std::string> suggestions;
