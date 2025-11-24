@@ -73,13 +73,13 @@ int computeScore(const std::string& pwd) {
 }
 
 std::string getStrengthLabel(int score) {
-    if (score <= 2) {
+    if (score <= 1) {
         return "Very Weak";
-    } else if (score <= 4) {
+    } else if (score <= 3) {
         return "Weak";
-    } else if (score <= 6) {
+    } else if (score <= 5) {
         return "Moderate";
-    } else if (score <= 8) {
+    } else if (score <= 7) {
         return "Strong";
     } else {
         return "Very Strong";
